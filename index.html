@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI와 딥러닝을 공부하는 컴퓨터공학과 학생 정규상의 개인 개발자 웹사이트">
+    <title>Kyusang.dev | 정규상</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">본문으로 바로가기</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <!-- 사이트 이름을 바꾸려면 아래 텍스트를 수정하세요. -->
+            <a class="site-logo" href="#home" aria-label="Kyusang.dev 홈">Kyusang<span>.dev</span></a>
+
+            <button class="menu-toggle" type="button" aria-controls="primary-navigation"
+                    aria-expanded="false" aria-label="메뉴 열기">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav id="primary-navigation" class="primary-navigation" aria-label="주요 메뉴">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#learning">Learning</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section id="home" class="hero section">
+            <div class="container hero-layout">
+                <div class="hero-copy">
+                    <p class="eyebrow">강원대학교 컴퓨터공학과</p>
+                    <!-- 이름과 첫 소개 문장은 이 영역에서 수정할 수 있습니다. -->
+                    <h1>안녕하세요.<br><strong>정규상</strong>입니다.</h1>
+                    <p class="hero-description">
+                        Python과 PyTorch를 중심으로 딥러닝을 공부하고 있습니다.
+                        컴퓨터 비전과 AI 서비스 개발에 관심이 있으며, 직접 만든 프로젝트를 통해 개발과 배포의
+                        전체 과정을 경험하려고 합니다.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="#about">About Me</a>
+                        <a class="button button-secondary" href="https://github.com/kyusang4657"
+                           target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- 실제 이미지가 준비되면 이 div를 img 요소로 바꾸고 images 폴더의 경로를 연결하세요. -->
+                <div class="profile-placeholder" role="img" aria-label="정규상 프로필 이미지 자리">
+                    <span class="profile-initials" aria-hidden="true">KS</span>
+                    <p>Profile image<br>coming later</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section section-muted">
+            <div class="container narrow-layout">
+                <div class="section-heading">
+                    <p class="section-number">01</p>
+                    <h2>About Me</h2>
+                </div>
+                <div class="about-content">
+                    <p>
+                        현재 컴퓨터공학과 4학년에 재학 중이며, Python과 PyTorch를 활용해 딥러닝을
+                        학습하고 있습니다. 특히 컴퓨터 비전과 AI를 실제 서비스로 연결하는 과정에 관심이 있습니다.
+                    </p>
+                    <p>
+                        단순히 코드를 복사하기보다 원리와 구조를 이해하는 것을 중요하게 생각합니다.
+                        아직 배워 가는 단계이지만, 프로젝트를 직접 기획하고 개발하고 배포하며 경험을 쌓고
+                        대학원 진학을 포함한 다음 진로를 준비하려고 합니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="learning" class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-number">02</p>
+                    <h2>Learning</h2>
+                    <p>현재 공부하는 내용과 다음 단계에서 배우려는 내용을 구분해 기록합니다.</p>
+                </div>
+
+                <div class="learning-grid">
+                    <article class="learning-card">
+                        <p class="card-label current">현재 학습 중</p>
+                        <h3>Building the foundation</h3>
+                        <!-- 현재 학습 기술을 추가하려면 아래 목록에 li 요소를 복사해 넣으세요. -->
+                        <ul class="tag-list" aria-label="현재 학습 중인 기술">
+                            <li>Python</li>
+                            <li>PyTorch</li>
+                            <li>Deep Learning</li>
+                            <li>SQL</li>
+                        </ul>
+                    </article>
+
+                    <article class="learning-card future-card">
+                        <p class="card-label future">앞으로 학습</p>
+                        <h3>Next on the roadmap</h3>
+                        <ul class="tag-list future-tags" aria-label="앞으로 학습할 기술">
+                            <li>FastAPI</li>
+                            <li>Web API</li>
+                            <li>Model Deployment</li>
+                            <li>Linux Server</li>
+                            <li>Docker</li>
+                            <li>Computer Vision</li>
+                            <li>AWS</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section section-muted">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-number">03</p>
+                    <h2>Projects</h2>
+                    <p>완성하고 배포한 작업을 하나씩 기록할 공간입니다.</p>
+                </div>
+
+                <div class="project-list">
+                    <!-- 새 프로젝트는 아래 article 전체를 복사한 뒤 내용과 링크를 바꾸어 추가하세요. -->
+                    <article class="project-card">
+                        <div class="project-topline">
+                            <p class="card-label current">개발 중</p>
+                            <span class="project-index" aria-hidden="true">01</span>
+                        </div>
+                        <h3>Personal Portfolio Website</h3>
+                        <p>
+                            HTML, CSS, JavaScript로 직접 제작하고 GitHub Pages를 통해 배포하는
+                            개인 개발자 웹사이트입니다. 웹사이트 구조 설계, 반응형 화면 구현,
+                            Git과 GitHub를 이용한 버전 관리, 배포와 유지보수 경험을 쌓기 위한
+                            첫 번째 웹 프로젝트입니다.
+                        </p>
+                        <ul class="tag-list project-tags" aria-label="프로젝트 사용 기술">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                            <li>Git</li>
+                            <li>GitHub Pages</li>
+                        </ul>
+                        <div class="project-actions" aria-label="프로젝트 링크">
+                            <span class="button button-disabled" aria-disabled="true">GitHub · 준비 중</span>
+                            <span class="text-link-disabled" aria-disabled="true">자세히 보기 · 준비 중</span>
+                        </div>
+                    </article>
+                </div>
+
+                <p class="projects-note">
+                    새로운 프로젝트는 개발과 배포가 완료된 후 순차적으로 추가할 예정입니다.
+                </p>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container contact-layout">
+                <div class="section-heading">
+                    <p class="section-number">04</p>
+                    <h2>Contact</h2>
+                </div>
+                <div class="contact-copy">
+                    <p>
+                        함께 공부하거나 프로젝트에 관해 나누고 싶은 이야기가 있다면
+                        GitHub를 통해 확인해 주세요.
+                    </p>
+                    <dl class="contact-list">
+                        <div>
+                            <dt>GitHub</dt>
+                            <dd>
+                                <a href="https://github.com/kyusang4657" target="_blank"
+                                   rel="noopener noreferrer">@kyusang4657</a>
+                            </dd>
+                        </div>
+                        <div>
+                            <dt>Email</dt>
+                            <dd>추후 추가 예정</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>© <span id="current-year"></span> Jung Kyusang. Built with HTML, CSS and JavaScript.</p>
+            <a href="https://github.com/kyusang4657" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+    </footer>
+</body>
+</html>
