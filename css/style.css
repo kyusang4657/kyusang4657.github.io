@@ -438,6 +438,19 @@ a {
     margin: 20px 0 0;
 }
 
+.project-thumb {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+}
+
+.project-list .project-card + .project-card {
+    margin-top: 24px;
+}
+
 .project-tags {
     margin-top: 22px;
 }
