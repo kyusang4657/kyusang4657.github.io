@@ -1,4 +1,22 @@
-/* 프로젝트 상세 페이지 전용 스타일. 색상·글꼴·버튼·카드는 style.css 의 변수와 규칙을 그대로 씁니다. */
+/* 프로젝트 상세 페이지 전용 스타일. 색상·글꼴·버튼·카드는 style.css의 변수와 규칙을 그대로 씁니다. */
+
+/* 본문 공통
+   - 한국어 제목·글은 낱말(어절) 가운데가 아니라 빈칸에서 줄을 바꿉니다. 아주 긴 낱말만 넘치지 않게 끊습니다.
+   - 보조 글자색: 사이트의 --muted-color(#6b7890)는 흰 바탕 4.45:1, 회청색 구역(#f5f8fc) 4.18:1로
+     WCAG AA(작은 글자 4.5:1)에 못 미칩니다. 캡션·노트에 설명을 많이 담는 이 페이지 본문에서는
+     사이트 팔레트의 더 진한 회청색(#58667b, .future-tags와 같은 색)을 씁니다 — 흰 바탕 5.83:1, #f5f8fc 5.47:1. */
+main {
+    --muted-color: #58667b;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+
+/* 제목은 줄 길이를 고르게(마지막 줄에 "것" 한 낱말만 남지 않게) */
+main h1,
+main h2,
+main h3 {
+    text-wrap: balance;
+}
 
 .project-hero {
     padding-top: calc(var(--header-height) + 56px);
@@ -87,6 +105,17 @@
 
 .chart-figure img {
     background: #fbfbf9;
+}
+
+/* 그림을 누르면 원본 크기 그림이 열림(폰에서 차트 글자를 읽을 길) */
+.media-link {
+    display: block;
+    border-radius: 14px;
+    cursor: zoom-in;
+}
+
+.zoom-hint {
+    display: none;
 }
 
 .media-figure figcaption {
@@ -278,8 +307,9 @@
     color: #1a7f4b;
 }
 
-.verify-table .warn {
-    color: #a3600e;
+/* 실패 판정(흰 바탕 6.57:1) */
+.verify-table .fail {
+    color: #b42318;
 }
 
 .verify-table .none {
@@ -305,11 +335,74 @@
     .stat-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
+    /* 검증 표: 좁은 화면에서 가로 스크롤 뒤에 '근거' 열이 숨지 않도록 줄마다 쌓음(항목 / 판정 / 근거) */
+    .verify-table {
+        min-width: 0;
+    }
+
+    .verify-table thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+    }
+
+    .verify-table tbody,
+    .verify-table tr,
+    .verify-table td {
+        display: block;
+    }
+
+    .verify-table tr {
+        padding: 16px 18px;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .verify-table tbody tr:last-child {
+        border-bottom: 0;
+    }
+
+    .verify-table td {
+        padding: 0;
+        border-bottom: 0;
+    }
+
+    .verify-table td:first-child {
+        color: var(--heading-color);
+        font-weight: 700;
+    }
+
+    .verify-table td[data-label] {
+        display: grid;
+        grid-template-columns: 2.6em minmax(0, 1fr);
+        column-gap: 10px;
+        align-items: baseline;
+        margin-top: 6px;
+    }
+
+    .verify-table td[data-label]::before {
+        color: var(--muted-color);
+        content: attr(data-label);
+        font-size: 0.8rem;
+        font-weight: 800;
+    }
+
+    .verify-table td:nth-child(2) {
+        white-space: normal;
+    }
 }
 
 @media (max-width: 520px) {
     .project-meta,
     .stat-grid {
         grid-template-columns: 1fr;
+    }
+
+    .zoom-hint {
+        display: block;
+        margin-top: 4px;
     }
 }

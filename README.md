@@ -28,15 +28,14 @@ AI와 딥러닝을 공부하는 컴퓨터공학과 학생 정규상의 개인 �
 .
 ├─ index.html       # 웹사이트의 내용과 전체 영역
 ├─ css/
-│  └─ style.css     # 색상, 레이아웃, 반응형 디자인
-├─ css/
+│  ├─ style.css     # 색상, 레이아웃, 반응형 디자인
 │  └─ project.css   # 프로젝트 상세 페이지 전용 스타일
 ├─ js/
 │  └─ main.js       # 모바일 메뉴, 부드러운 이동, 현재 연도
 ├─ projects/
 │  └─ slime-lab.html  # 프로젝트 02 상세 페이지(슬라임 인공생명 실험실)
 ├─ images/
-│  └─ slime-lab/    # 프로젝트 02 의 화면·차트·타임랩스(webm·mp4)
+│  └─ slime-lab/    # 프로젝트 02의 화면·차트·타임랩스(webm·mp4)
 └─ README.md        # 실행 및 수정 방법
 ```
 
