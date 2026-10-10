@@ -57,6 +57,14 @@ main h3 {
     color: var(--heading-color);
 }
 
+/* 첫 화면 단추 줄의 "준비 중" 글은 단추(48px)와 같은 높이의 가운데에 둡니다(폰 폭에서 단추가 한 줄씩 쌓일 때도). */
+.hero-actions .text-link-disabled {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+}
+
 .demo-note {
     max-width: 780px;
     margin: 16px 0 0;

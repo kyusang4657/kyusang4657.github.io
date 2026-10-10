@@ -47,24 +47,24 @@
                     작은 신경망을 가진 슬라임들이 스스로 먹고 번식하며 세대를 거쳐 진화하고,
                     행동이 쌓이면 <strong>채집 → 저장 → 농사</strong>를 발견합니다.
                     사용자는 조작하지 않고 실험 조건을 정한 뒤 관찰하고 분석하는 연구용 시뮬레이션입니다.
-                    AI 코딩 에이전트(Claude Code)와 함께 <strong>바이브 코딩</strong>으로 이틀 동안 만들었습니다.
+                    AI 코딩 에이전트(Claude Code)와 함께 <strong>바이브 코딩</strong>으로 이틀 동안 만들고,
+                    하루 동안 처음부터 다시 검토해 고쳤습니다.
                 </p>
                 <div class="hero-actions">
-                    <a class="button button-primary" href="https://kyusang4657.github.io/slime-lab/"
-                       target="_blank" rel="noopener noreferrer">브라우저 체험판</a>
-                    <a class="button button-secondary" href="https://github.com/kyusang4657/slime-lab"
+                    <a class="button button-primary" href="https://github.com/kyusang4657/slime-lab"
                        target="_blank" rel="noopener noreferrer">GitHub 저장소</a>
+                    <span class="text-link-disabled" aria-disabled="true">브라우저 체험판 · 준비 중</span>
                 </div>
                 <p class="demo-note">
-                    체험판은 PC 브라우저(WebGL2)용입니다. 브라우저에서는 데스크톱판보다 느려 높은 배속이 덜 나오며,
-                    화면 오른쪽 위의 "실제 M배"가 그대로 보여 줍니다. 실제 GPU 브라우저와 배포 주소에서는
-                    아직 확인하지 못했습니다(아래 검증 표).
+                    브라우저 체험판은 아직 공개 전입니다. 웹 빌드는 만들어 두었지만 slime-lab 저장소의 GitHub Pages가
+                    켜져 있지 않아 배포 단계가 실패하고 있습니다(아래 검증 표). 공개되면 PC 브라우저(WebGL2)용이며,
+                    브라우저에서는 데스크톱판보다 느려 높은 배속이 덜 나오고 화면 오른쪽 위의 "실제 M배"가 그대로 보여 줍니다.
                 </p>
 
                 <dl class="project-meta">
-                    <div><dt>기간</dt><dd>2026.10.07 – 10.08</dd></div>
+                    <div><dt>기간</dt><dd>2026.10.07 – 10.10</dd></div>
                     <div><dt>엔진</dt><dd>Godot 4.4.1 · GDScript</dd></div>
-                    <div><dt>플랫폼</dt><dd>PC(Windows·Linux) + 웹 체험판</dd></div>
+                    <div><dt>플랫폼</dt><dd>PC(Windows·Linux) · 웹 체험판 준비 중</dd></div>
                     <div><dt>라이선스</dt><dd>MIT</dd></div>
                 </dl>
 
@@ -76,9 +76,9 @@
                         이 브라우저는 영상을 재생할 수 없습니다.
                     </video>
                     <figcaption>
-                        타임랩스 — 예설정 "빠른 문명"·씨앗 5를 32배로 1,800틱. 채집(648틱)·저장(702틱)·농사(1,024틱)
-                        발견 알림이 뜨고 아래 그래프가 자라며, 끝에서는 저장고 가까이의 개체를 따라갑니다.
-                        실제 실행 화면을 찍은 것입니다.
+                        타임랩스 — 예설정 "빠른 문명"·씨앗 2를 32배로 1,800틱. 채집(374틱)·저장(422틱)·농사(812틱)
+                        발견 알림과 첫 밭(869틱)이 뜨고 아래 그래프가 자라며, 끝에서는 밭이 가장 많은 저장고 가까이의
+                        개체를 따라갑니다. 검토 고침 뒤의 실제 실행 화면을 찍은 것입니다.
                     </figcaption>
                 </figure>
             </div>
@@ -137,11 +137,12 @@
                 <figure class="media-figure">
                     <a class="media-link" href="../images/slime-lab/lab.jpg">
                         <img src="../images/slime-lab/lab.jpg" width="1600" height="900" loading="lazy"
-                             alt="실험실 전체 화면: 왼쪽 실험 조건, 가운데 3D 지도, 오른쪽 고른 슬라임의 정보와 두뇌 가중치, 아래 그래프 3개와 연대기">
+                             alt="실험실 전체 화면: 왼쪽 실험 조건, 가운데 3D 지도(저장고 옆 밭 두 칸과 고른 슬라임), 오른쪽 고른 슬라임의 정보와 두뇌 가중치, 아래 그래프 3개와 연대기">
                     </a>
                     <figcaption>
-                        왼쪽 실험 조건 · 가운데 3D 지도 · 오른쪽 개체 정보(부모·자식, 두뇌 가중치 열지도) ·
-                        아래 그래프(개체 수·평균 특성·기술 단계)와 연대기.
+                        왼쪽 실험 조건 · 가운데 3D 지도 · 오른쪽 개체 정보(부모·조부모·자식, 두뇌 가중치 열지도) ·
+                        아래 그래프(개체 수·평균 특성·기술 단계)와 연대기. 시연·검사용 예설정·씨앗 11의 농사 단계 낮 장면으로,
+                        저장고 옆에 첫 밭이 생겼습니다.
                     </figcaption>
                 </figure>
 
@@ -149,9 +150,9 @@
                     <figure class="media-figure">
                         <a class="media-link" href="../images/slime-lab/compare.jpg">
                             <img src="../images/slime-lab/compare.jpg" width="1600" height="900" loading="lazy"
-                                 alt="비교 모드: 두 조건의 지도를 나란히 놓고 그래프는 A 실선·B 점선으로 겹쳐 보여 주는 화면">
+                                 alt="비교 모드: 두 조건의 지도를 나란히 놓고 그래프는 A 초록 실선·B 분홍 점선으로 겹쳐 보여 주는 화면">
                         </a>
-                        <figcaption>비교 모드 — 두 조건을 같은 배속으로 나란히. 그래프는 A 실선·B 점선.</figcaption>
+                        <figcaption>비교 모드 — 두 조건(여기서는 A 시연·검사용, B 기본, 같은 씨앗 1)을 같은 배속으로 나란히. 그래프는 A 초록 실선·B 분홍 점선.</figcaption>
                     </figure>
                     <figure class="media-figure">
                         <a class="media-link" href="../images/slime-lab/models.jpg">
@@ -186,8 +187,9 @@
                              alt="예설정 빠른 문명, 씨앗 8개 × 100세대에서 채집·저장·농사를 발견한 평균 세대의 분포">
                     </a>
                     <figcaption>
-                        발견 세대 — 예설정 "빠른 문명", 씨앗 8개 × 100세대. 점 하나가 실행 하나, 상자는 사분위 범위,
-                        굵은 선은 중앙값. 8개 모두 농사까지 도달했지만 씨앗에 따라 2세대에서 74세대까지 크게 다릅니다.
+                        발견 세대 — 예설정 "빠른 문명", 씨앗 8개 × 100세대(2개는 농사를 연 뒤 도중에 멸종). 점 하나가 실행 하나,
+                        상자는 사분위 범위, 굵은 선은 중앙값. 8개 모두 농사까지 도달했지만 농사 세대는 씨앗에 따라
+                        약 2세대에서 56세대까지 크게 다릅니다(중앙값 18.9세대).
                         <span class="zoom-hint">그림을 누르면 원본 크기로 열립니다.</span>
                     </figcaption>
                 </figure>
@@ -198,8 +200,9 @@
                              alt="같은 실행들에서 평균 세대에 따른 평균 크기와 평균 감지 반경의 변화">
                     </a>
                     <figcaption>
-                        특성 변화 — 같은 8개 실행에서 평균 크기는 대체로 줄고, 감지 반경은 뒤늦게 줄기 시작합니다.
-                        기본 설정·씨앗 1로 1,000세대를 돌린 한 실행에서는 크기가 1.0 → 0.63, 감지 반경이 3 → 1로 줄었습니다
+                        특성 변화 — 같은 8개 실행에서 평균 크기는 대체로 줄고(100세대에 0.89~0.98), 평균 감지 반경은
+                        한 실행(씨앗 5)만 60세대 무렵부터 줄고 나머지는 3 근처에 머뭅니다.
+                        기본 설정·씨앗 1로 1,000세대를 돌린 한 실행에서는 평균 크기가 1.00 → 0.64, 평균 감지 반경이 3.00 → 1.26으로 줄었습니다
                         (대사 비용 압력으로 작고 근시인 개체가 우세해진 것으로 보이며, 한 실행의 관찰이라 일반화하지 않았습니다).
                         <span class="zoom-hint">그림을 누르면 원본 크기로 열립니다.</span>
                     </figcaption>
@@ -236,7 +239,8 @@
                             <li>설계 문서 초안, 구현, 자동 검사, 문서</li>
                             <li>화면 구성 요소를 git 워크트리에서 여러 에이전트가 병렬로 만든 뒤 통합</li>
                             <li>적대적 검토: 여러 관점의 검토자가 문제를 찾고, 발견마다 검증자 둘이 반박을 시도해 살아남은 것만 고침(3단계: 확인된 40건 모두, 4단계: 확인된 55건 모두 — 그중 5건은 일부를 까닭과 함께 남김)</li>
-                            <li>GitHub Actions: 검사 → Linux·Windows·웹 빌드 → 체험판 배포</li>
+                            <li>1단계를 마친 뒤 처음부터 다시 한 전체 검토: 확인된 문제 121개 — 실험실 저장소의 111개를 고치고(1개는 일부를 까닭과 함께 남김), 포트폴리오 몫 10개는 이 사이트에서 고침</li>
+                            <li>GitHub Actions: 검사 → Linux·Windows·웹 빌드 → 체험판 배포(저장소의 Pages 설정을 기다리는 중)</li>
                         </ul>
                     </article>
                 </div>
@@ -246,14 +250,15 @@
                     <li><strong>시뮬레이션 핵심</strong> 화면 없이 도는 규칙과 헤드리스 실행기. 초안 수치로는 첫 세대가 매번 멸종해 행동 선택을 확률적으로 바꾸고 생태 수치를 조정.</li>
                     <li><strong>3D 실험실</strong> 절차적 슬라임 모델, 지도 관찰 창, 개체 정보 창. 병렬 개발 → 통합 → 적대적 검토.</li>
                     <li><strong>패널과 비교</strong> 실험 조건·그래프·연대기·CSV·스냅숏·비교 모드·합성 효과음.</li>
-                    <li><strong>빌드와 배포</strong> Linux·Windows·웹 내보내기, 자동 빌드, 체험판 배포.</li>
+                    <li><strong>빌드와 배포</strong> Linux·Windows·웹 내보내기, 자동 빌드, 체험판 배포 단계(저장소의 Pages를 켜면 동작).</li>
+                    <li><strong>전체 검토와 고침</strong> 마친 1단계를 처음부터 다시 검토해 확인된 문제 121개(실험실 111개 · 이 사이트 10개)를 고치고, 독립 검증자가 다시 재현해 남은 것을 마저 고침.</li>
                 </ol>
 
                 <div class="stat-grid">
-                    <div><strong>약 1만 4천 5백 줄</strong><span>GDScript(시뮬레이션 2,185 · 3D 2,818 · 화면 9,533)</span></div>
-                    <div><strong>약 1만 900줄</strong><span>검사·도구 코드 — tests/ 폴더의 GDScript 9,617(검사와 헤드리스 실행기·화면 캡처·성능 측정) · 파이썬 검사 1,272</span></div>
-                    <div><strong>1,270개 넘는 자동 검사</strong><span>규칙 171 · 화면 1,064 · 파이썬 41 + 실제 화면 동작 확인 53</span></div>
-                    <div><strong>커밋 45개</strong><span>단계마다 커밋·푸시, CI로 확인</span></div>
+                    <div><strong>약 1만 6천 3백 줄</strong><span>GDScript(시뮬레이션 2,619 · 3D 3,290 · 화면 10,391)</span></div>
+                    <div><strong>약 1만 6천 5백 줄</strong><span>검사·도구 코드 — tests/ 폴더의 GDScript 13,820(검사와 헤드리스 실행기·화면 캡처·성능 측정) · 파이썬 검사 2,660</span></div>
+                    <div><strong>1,760개 넘는 자동 검사</strong><span>규칙 360 · 화면 1,301 · 파이썬 101 + 실제 화면 동작 확인 53(1280×720에서 52)</span></div>
+                    <div><strong>커밋 76개</strong><span>단계마다 커밋·푸시, CI로 확인</span></div>
                 </div>
 
                 <h3 class="subheading">과정에서 드러난 것</h3>
@@ -261,6 +266,7 @@
                     <li>설계 초안대로 구현하자 무작위 두뇌가 한 행동만 반복해 첫 세대가 멸종 — 실측으로 원인을 찾고 설계를 고침</li>
                     <li>Godot 4.4.1의 JSON 출력이 실수를 비트 단위로 되돌리지 못함(0.1+0.2 → "0.3") — 스냅숏의 실수는 비트 문자열로 저장</li>
                     <li>각자 검사를 통과한 구성 요소도 함께 띄우자 최소 창 크기에서 패널이 넘침 — 실제 화면을 띄우는 통합 검사를 추가</li>
+                    <li>전체 검토에서 규칙 결함(식물 성장량이 갱신 간격에 따라 달라지던 것 등)을 고치자 역사가 바뀌어 문명이 더 빨라졌고, 예설정 "빠른 문명"은 세대 목표(저장 15~35·농사 30~70세대 중앙값)를 못 맞춤 — 씨앗 12개의 중앙값이 저장 5.7·농사 14.3세대로 더 이르고, 2개는 농사를 연 뒤 멸종. 다시 맞추는 것은 다음 단계로</li>
                 </ul>
             </div>
         </section>
@@ -279,14 +285,15 @@
                         </thead>
                         <tbody>
                             <tr><td>같은 씨앗 → 같은 역사</td><td class="ok" data-label="판정">통과</td><td data-label="근거">역사 해시·CSV·유전체 비교, 서로 다른 리눅스 기계(CI)에서도 같은 해시</td></tr>
+                            <tr><td>웹(wasm)과 리눅스 데스크톱에서 같은 역사</td><td class="ok" data-label="판정">통과(수동 탐침)</td><td data-label="근거">시뮬레이션만 담은 탐침을 웹으로 내보내 헤드리스 Chromium과 리눅스 데스크톱에서 8경우를 돌려 역사 해시가 모두 같음 — Chromium에서만 확인, CI 검사는 아님</td></tr>
                             <tr><td>저장·복원 왕복</td><td class="ok" data-label="판정">통과</td><td data-label="근거">복원 후 이어 돌린 해시 = 끊김 없이 돌린 해시</td></tr>
                             <tr><td>자원 0 → 멸종, 100세대 안에 농사 도달하는 조건</td><td class="ok" data-label="판정">통과</td><td data-label="근거">자동 검사</td></tr>
                             <tr><td>화면을 거쳐도 시뮬레이션이 바뀌지 않음</td><td class="ok" data-label="판정">통과</td><td data-label="근거">실험실을 거친 해시 = 헤드리스 해시</td></tr>
-                            <tr><td>웹 체험판이 브라우저에서 뜨고 실험이 진행됨</td><td class="ok" data-label="판정">통과(헤드리스)</td><td data-label="근거">헤드리스 Chromium + SwiftShader(소프트웨어 WebGL2)에서만 확인 — 오류 없이 실험실이 뜨고 틱이 진행됨. CSV·스냅숏 내려받기는 자동 검사로 확인했고, 브라우저의 실제 내려받기 창은 미검증</td></tr>
-                            <tr><td>헤드리스 1,000세대</td><td class="fail" data-label="판정">실패(7.4분)</td><td data-label="근거">목표 5분은 넘음(개체·틱당 약 16µs)</td></tr>
+                            <tr><td>웹 빌드(체험판)가 브라우저에서 뜨고 실험이 진행됨</td><td class="ok" data-label="판정">통과(헤드리스)</td><td data-label="근거">헤드리스 Chromium + SwiftShader(소프트웨어 WebGL2)에서만 확인 — 오류 없이 실험실이 뜨고 틱이 진행됨. CSV·스냅숏 내려받기는 자동 검사로 확인했고, 브라우저의 실제 내려받기 창은 미검증</td></tr>
+                            <tr><td>헤드리스 1,000세대</td><td class="fail" data-label="판정">실패</td><td data-label="근거">목표 5분 이내 — 마지막 측정 733.8초(12.2분, 2026-10-10). 같은 날 고침 전 코드도 같은 속도라 기계가 느린 날로 보며, 2단계 측정 날에는 7.4분</td></tr>
                             <tr><td>실제 GPU에서 200마리 60FPS</td><td class="none" data-label="판정">미검증</td><td data-label="근거">개발 환경에 GPU가 없어 소프트웨어 렌더러로만 측정</td></tr>
-                            <tr><td>실제 GPU 브라우저에서 체험판 속도</td><td class="none" data-label="판정">미검증</td><td data-label="근거">SwiftShader(소프트웨어 그래픽)에서만 쟀음 — 64배 목표에 실제 1.1배</td></tr>
-                            <tr><td>Pages 체험판 주소가 열림</td><td class="none" data-label="판정">미검증</td><td data-label="근거">아직 배포 전 — 저장소에 GitHub Pages가 켜져 있지 않아 Actions의 배포 단계가 실패함. 켠 뒤 확인</td></tr>
+                            <tr><td>실제 GPU 브라우저에서 체험판 속도</td><td class="none" data-label="판정">미검증</td><td data-label="근거">SwiftShader(소프트웨어 그래픽)에서만 쟀음 — 64배 목표에 실제 1.1배. 이 값은 7.5FPS 아래에서 엔진이 자른 시간으로 잰 것이라 실제보다 클 수 있음(검토 J04에서 재는 방식을 고쳤고, 다시 재지는 않음)</td></tr>
+                            <tr><td>GitHub Pages 체험판 배포</td><td class="fail" data-label="판정">실패</td><td data-label="근거">slime-lab 저장소에 GitHub Pages가 켜져 있지 않아 Actions의 배포 단계가 매번 실패(저장소 설정 몫). 그래서 체험판 단추는 아직 링크하지 않았고, 주소가 열리는지는 켠 뒤 확인</td></tr>
                             <tr><td>Windows·macOS에서 같은 해시, Windows 실행</td><td class="none" data-label="판정">미검증</td><td data-label="근거">리눅스 환경만 있음</td></tr>
                             <tr><td>효과음을 실제로 들어 보기</td><td class="none" data-label="판정">미검증</td><td data-label="근거">합성 파형의 수치만 자동 검사</td></tr>
                         </tbody>
@@ -314,14 +321,13 @@
                     <li>Claude Code</li>
                 </ul>
                 <div class="project-actions">
-                    <a class="button button-primary" href="https://kyusang4657.github.io/slime-lab/"
-                       target="_blank" rel="noopener noreferrer">브라우저 체험판</a>
-                    <a class="button button-secondary" href="https://github.com/kyusang4657/slime-lab"
+                    <a class="button button-primary" href="https://github.com/kyusang4657/slime-lab"
                        target="_blank" rel="noopener noreferrer">GitHub 저장소</a>
                     <a class="button button-secondary" href="https://github.com/kyusang4657/slime-lab/blob/main/docs/DESIGN-v0.1.md"
                        target="_blank" rel="noopener noreferrer">설계 문서</a>
                     <a class="button button-secondary" href="https://github.com/kyusang4657/slime-lab/blob/main/docs/TEST-REPORT.md"
                        target="_blank" rel="noopener noreferrer">검수 보고서</a>
+                    <span class="text-link-disabled" aria-disabled="true">브라우저 체험판 · 준비 중</span>
                 </div>
             </div>
         </section>

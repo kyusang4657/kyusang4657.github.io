@@ -6,6 +6,7 @@
     --heading-color: #10233f;
     --text-color: #43526a;
     --muted-color: #6b7890;
+    --footer-link-color: #93c5fd;
     --background-color: #ffffff;
     --surface-color: #f5f8fc;
     --border-color: #dce4ef;
@@ -524,6 +525,16 @@ a {
 .site-footer a:focus-visible {
     text-decoration: underline;
     text-underline-offset: 4px;
+}
+
+/* 남색 푸터(#0f2747) 위의 링크는 같은 파랑 계열의 밝은 색을 씁니다.
+   --primary-color(#2563eb)는 이 바탕에서 2.90:1로 작은 글자 기준(4.5:1)에 못 미치고, #93c5fd는 8.31:1입니다. */
+.site-footer a {
+    color: var(--footer-link-color);
+}
+
+.site-footer a:focus-visible {
+    outline-color: var(--footer-link-color);
 }
 
 .site-footer {
