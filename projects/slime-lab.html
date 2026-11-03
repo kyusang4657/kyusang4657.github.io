@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="슬라임 인공생명 실험실 — 신경진화로 진화하며 채집·저장·농사를 발견하고(1부), 자라며 한 생애 안에서 스스로 배우는(2부) 슬라임을 관찰하는 연구용 시뮬레이션(Godot 4.4.1)">
+    <title>슬라임 인공생명 실험실 | Kyusang.dev</title>
+    <link rel="icon" href="../images/slime-lab/icon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/project.css">
+    <script src="../js/main.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">본문으로 바로가기</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="site-logo" href="../index.html" aria-label="Kyusang.dev 홈">Kyusang<span>.dev</span></a>
+
+            <button class="menu-toggle" type="button" aria-controls="primary-navigation"
+                    aria-expanded="false" aria-label="메뉴 열기">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav id="primary-navigation" class="primary-navigation" aria-label="주요 메뉴">
+                <ul>
+                    <li><a href="../index.html#home">Home</a></li>
+                    <li><a href="../index.html#about">About</a></li>
+                    <li><a href="../index.html#learning">Learning</a></li>
+                    <li><a href="../index.html#projects">Projects</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- 프로젝트 첫 화면 -->
+        <section class="project-hero section">
+            <div class="container">
+                <a class="back-link" href="../index.html#projects">← 프로젝트 목록</a>
+                <p class="eyebrow">Project 02 · 인공생명 시뮬레이션</p>
+                <h1>슬라임 인공생명 실험실</h1>
+                <p class="project-lead">
+                    작은 신경망을 가진 슬라임들이 스스로 먹고 번식하며 세대를 거쳐 진화하고,
+                    행동이 쌓이면 <strong>채집 → 저장 → 농사</strong>를 발견합니다.
+                    사용자는 조작하지 않고 실험 조건을 정한 뒤 관찰하고 분석하는 연구용 시뮬레이션입니다.
+                    1부(v0.1)는 AI 코딩 에이전트(Claude Code)와 함께 <strong>바이브 코딩</strong>으로 이틀 동안 만들고,
+                    하루 동안 처음부터 다시 검토해 고쳤습니다.
+                </p>
+                <p class="project-lead">
+                    2부(v0.2)에서는 슬라임이 <strong>자라고, 한 생애 안에서 스스로 배우게</strong> 했습니다.
+                    "배우는 슬라임이 정말 더 잘하나"는 미리 고정한 관문으로 판정했습니다. 앞의 두 번은 판정 불가였고,
+                    판정 규칙을 고친 세 번째에 통과했습니다. 진화한 두뇌에서는 학습의 득이 문턱에 못 미쳤습니다.
+                    다음 단계부터는 설계로만 남기고, 2026년 11월 3일 여기서 마무리했습니다.
+                </p>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="https://kyusang4657.github.io/slime-lab/"
+                       target="_blank" rel="noopener noreferrer">브라우저 체험판</a>
+                    <a class="button button-secondary" href="https://github.com/kyusang4657/slime-lab"
+                       target="_blank" rel="noopener noreferrer">GitHub 저장소</a>
+                    <a class="button button-secondary" href="https://github.com/kyusang4657/slime-lab/blob/main/docs/RETROSPECTIVE.md"
+                       target="_blank" rel="noopener noreferrer">회고</a>
+                </div>
+                <p class="demo-note">
+                    체험판은 PC 브라우저(WebGL2)용입니다. 브라우저에서는 데스크톱판보다 느려 높은 배속이 덜 나오며,
+                    화면 오른쪽 위의 "실제 M배"가 그대로 보여 줍니다. 실제 GPU 브라우저에서의 속도는
+                    아직 확인하지 못했습니다(아래 검증 표).
+                </p>
+
+                <dl class="project-meta">
+                    <div><dt>기간</dt><dd>2026.10.07 – 10.18</dd></div>
+                    <div><dt>엔진</dt><dd>Godot 4.4.1 · GDScript</dd></div>
+                    <div><dt>플랫폼</dt><dd>PC(Windows·Linux) + 웹 체험판</dd></div>
+                    <div><dt>판 · 라이선스</dt><dd>v0.2.0 · MIT</dd></div>
+                </dl>
+
+                <figure class="media-figure">
+                    <video controls muted loop playsinline preload="metadata"
+                           poster="../images/slime-lab/timelapse-poster.jpg">
+                        <source src="../images/slime-lab/timelapse.webm" type="video/webm">
+                        <source src="../images/slime-lab/timelapse.mp4" type="video/mp4">
+                        이 브라우저는 영상을 재생할 수 없습니다.
+                    </video>
+                    <figcaption>
+                        타임랩스 — 예설정 "빠른 문명"·씨앗 2를 32배로 1,800틱. 채집(374틱)·저장(422틱)·농사(812틱)
+                        발견 알림과 첫 밭(869틱)이 뜨고 아래 그래프가 자라며, 끝에서는 밭이 가장 많은 저장고 가까이의
+                        개체를 따라갑니다. 1부 검토 고침 뒤의 실제 실행 화면을 찍은 것입니다.
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- 무엇을 하는 실험인가 -->
+        <section class="section section-muted">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-number">01</p>
+                    <h2>무엇을 하는 실험인가</h2>
+                    <p>규칙은 단순하게, 결과는 관찰로. 모든 수치는 설정 파일 하나에서 읽습니다.</p>
+                </div>
+                <div class="feature-grid">
+                    <article class="learning-card">
+                        <p class="card-label current">생태</p>
+                        <h3>먹고, 번식하고, 죽는다</h3>
+                        <p>
+                            64×48 격자 지도(풀밭·물·바위)는 씨앗(seed)으로 만듭니다. 식물은 비옥도 × 낮밤 × 계절 × 자원량만큼
+                            자라고, 슬라임은 에너지와 수명이 있으며 성숙하면 가까운 짝과 번식합니다.
+                        </p>
+                    </article>
+                    <article class="learning-card">
+                        <p class="card-label current">두뇌와 진화</p>
+                        <h3>작은 신경망 + 신경진화</h3>
+                        <p>
+                            슬라임마다 입력 12·은닉 8·출력 8의 신경망(가중치 160개 + 크기·감지·색 유전자)이 있습니다.
+                            역전파 없이, 번식할 때 부모의 가중치를 은닉 뉴런 단위로 섞고 돌연변이를 더해 세대가 바뀌며 진화합니다.
+                        </p>
+                    </article>
+                    <article class="learning-card">
+                        <p class="card-label current">문명</p>
+                        <h3>행동이 쌓이면 발견</h3>
+                        <p>
+                            아직 열리지 않은 행동(줍기·내려놓기·심기)도 고를 수 있고, 그 "시도"와 결과가 쌓여 임계를 넘으면
+                            발견이 열립니다. 저장을 발견하면 저장고가, 농사를 발견하면 밭이 생깁니다.
+                        </p>
+                    </article>
+                </div>
+                <p class="section-note">
+                    같은 씨앗과 같은 설정이면 같은 역사가 나오도록(결정적 시뮬레이션) 시뮬레이션 코드는 사칙연산과 제곱근만 쓰고,
+                    이를 자동 검사로 확인합니다. 실험실에서 내보낸 CSV는 같은 조건의 헤드리스 실행 결과와 글자까지 같습니다.
+                </p>
+            </div>
+        </section>
+
+        <!-- 실험실 화면 -->
+        <section class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-number">02</p>
+                    <h2>실험실</h2>
+                    <p>조작하는 게임이 아니라 관찰하는 도구입니다. 그림·모델·효과음은 모두 코드로 만들었습니다.</p>
+                </div>
+
+                <figure class="media-figure">
+                    <a class="media-link" href="../images/slime-lab/lab.jpg">
+                        <img src="../images/slime-lab/lab.jpg" width="1600" height="900" loading="lazy"
+                             alt="실험실 전체 화면: 왼쪽 실험 조건, 가운데 3D 지도(저장고 옆 밭 두 칸과 고른 슬라임), 오른쪽 고른 슬라임의 정보와 두뇌 가중치, 아래 그래프 3개와 연대기">
+                    </a>
+                    <figcaption>
+                        왼쪽 실험 조건 · 가운데 3D 지도 · 오른쪽 개체 정보(부모·조부모·자식, 두뇌 가중치 열지도) ·
+                        아래 그래프(개체 수·평균 특성·기술 단계)와 연대기. 시연·검사용 예설정·씨앗 11의 농사 단계 낮 장면으로,
+                        저장고 옆에 첫 밭이 생겼습니다.
+                    </figcaption>
+                </figure>
+
+                <div class="figure-pair">
+                    <figure class="media-figure">
+                        <a class="media-link" href="../images/slime-lab/compare.jpg">
+                            <img src="../images/slime-lab/compare.jpg" width="1600" height="900" loading="lazy"
+                                 alt="비교 모드: 두 조건의 지도를 나란히 놓고 그래프는 A 초록 실선·B 분홍 점선으로 겹쳐 보여 주는 화면">
+                        </a>
+                        <figcaption>비교 모드 — 두 조건(여기서는 A 시연·검사용, B 기본, 같은 씨앗 1)을 같은 배속으로 나란히. 그래프는 A 초록 실선·B 분홍 점선.</figcaption>
+                    </figure>
+                    <figure class="media-figure">
+                        <a class="media-link" href="../images/slime-lab/models.jpg">
+                            <img src="../images/slime-lab/models.jpg" width="1600" height="900" loading="lazy"
+                                 alt="코드로 만든 슬라임 모델(여러 색과 크기), 풀포기, 열매, 저장고, 밭">
+                        </a>
+                        <figcaption>절차적 모델 — 구 하나를 조각한 슬라임(삼각형 398개), 저장고·밭·풀포기.</figcaption>
+                    </figure>
+                </div>
+
+                <ul class="check-list">
+                    <li>실험 조건(예설정·씨앗·돌연변이율·자원량·초기 개체 수, 고급 설정) — 바꾼 값은 "새 실험"을 눌러야 적용</li>
+                    <li>속도 1~64배와 빨리 감기, 낮밤·계절, 슬라임 클릭 → 상태·가계·두뇌</li>
+                    <li>실시간 그래프 3개와 연대기, CSV 내보내기, 스냅숏 저장·열기</li>
+                    <li>두 실험 나란히 비교, 여러 씨앗을 묶어 돌리는 파이썬 분석 도구</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 실험 결과 -->
+        <section class="section section-muted">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-number">03</p>
+                    <h2>실험 결과(실제 실행)</h2>
+                    <p>1부(v0.1)의 분석 도구로 여러 씨앗을 실제로 돌린 결과입니다. 꾸민 수치는 없습니다.</p>
+                </div>
+
+                <figure class="media-figure chart-figure">
+                    <a class="media-link" href="../images/slime-lab/discovery.png">
+                        <img src="../images/slime-lab/discovery.png" width="1210" height="352" loading="lazy"
+                             alt="예설정 빠른 문명, 씨앗 8개 × 100세대에서 채집·저장·농사를 발견한 평균 세대의 분포">
+                    </a>
+                    <figcaption>
+                        발견 세대 — 예설정 "빠른 문명", 씨앗 8개 × 100세대(2개는 농사를 연 뒤 도중에 멸종). 점 하나가 실행 하나,
+                        상자는 사분위 범위, 굵은 선은 중앙값. 8개 모두 농사까지 도달했지만 농사 세대는 씨앗에 따라
+                        약 2세대에서 56세대까지 크게 다릅니다(중앙값 18.9세대).
+                        <span class="zoom-hint">그림을 누르면 원본 크기로 열립니다.</span>
+                    </figcaption>
+                </figure>
+
+                <figure class="media-figure chart-figure">
+                    <a class="media-link" href="../images/slime-lab/traits.png">
+                        <img src="../images/slime-lab/traits.png" width="1144" height="462" loading="lazy"
+                             alt="같은 실행들에서 평균 세대에 따른 평균 크기와 평균 감지 반경의 변화">
+                    </a>
+                    <figcaption>
+                        특성 변화 — 같은 8개 실행에서 평균 크기는 대체로 줄고(100세대에 0.89~0.98), 평균 감지 반경은
+                        한 실행(씨앗 5)만 60세대 무렵부터 줄고 나머지는 3 근처에 머뭅니다.
+                        기본 설정·씨앗 1로 1,000세대를 돌린 한 실행에서는 평균 크기가 1.00 → 0.64, 평균 감지 반경이 3.00 → 1.26으로 줄었습니다
+                        (대사 비용 압력으로 작고 근시인 개체가 우세해진 것으로 보이며, 한 실행의 관찰이라 일반화하지 않았습니다).
+                        <span class="zoom-hint">그림을 누르면 원본 크기로 열립니다.</span>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- 2부: 배우고 자라는 슬라임 -->
+        <section class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-number">04</p>
+                    <h2>2부 — 배우고 자라는 슬라임(v0.2)</h2>
+                    <p>
+                        1부의 슬라임은 유전체로만 세대를 잇습니다. 태어날 때부터 어른 몸이고, 살면서 아무것도 배우지 않습니다.
+                        문명도 세계 하나가 함께 쓰는 단계 숫자라, 한 번 열리면 잃지도 갈라지지도 않고 사다리는 농사에서 끝납니다.
+                    </p>
+                </div>
+
+                <p class="section-text">
+                    그래서 2부의 방향을 이렇게 요청했습니다(2026-10-11):
+                    "세대를 거치면서 각 슬라임이 부모로부터 물려받고 성장과정을 거치면서, 스스로 학습해서 문명을 개척해나가는 과정을 거치게 하고 싶은데".
+                    설계 문서(DESIGN-v0.2)는 이를 여덟 단계로 나눴습니다. 0 관찰 바닥 → 1 성장 + 스스로 학습(관문 A) →
+                    2 무엇을 좋아할지 유전 → 3 물려받기(관문 B) → 4~6 재료·만들기·건물 → 7 실험 묶음.
+                    이번 프로젝트에서 만든 것은 <strong>0·1단계</strong>까지입니다.
+                </p>
+
+                <div class="feature-grid">
+                    <article class="learning-card">
+                        <p class="card-label current">생애</p>
+                        <h3>어린 · 젊은 · 어른 · 늙은</h3>
+                        <p>
+                            나이에 따라 생애 단계가 바뀝니다. 몸 자람을 켜면 갓 태어난 슬라임은 절반 크기로 시작해
+                            성숙(30틱)할 때까지 자라고, 크기에 따라 최대 에너지·대사·한입이 함께 바뀝니다.
+                        </p>
+                    </article>
+                    <article class="learning-card">
+                        <p class="card-label current">스스로 학습</p>
+                        <h3>한 생애 안에서 배우는 두뇌</h3>
+                        <p>
+                            타고난 두뇌(유전체)와 따로 "배운 두뇌"(출력층의 행동 8행)를 듭니다. 결과가 평소보다 좋으면 방금 한 행동을
+                            강화하고 나쁘면 약화하는 보상 조절 학습으로 스스로 고칩니다. 배운 가중치는 유전되지 않습니다.
+                        </p>
+                    </article>
+                    <article class="learning-card">
+                        <p class="card-label current">학습률 유전자</p>
+                        <h3>얼마나 배울지도 진화</h3>
+                        <p>
+                            행동마다 학습률 η가 유전자로 붙어 진화하고, η에 비례하는 학습 비용을 매 틱 냅니다.
+                            배우는 능력에 값이 있어야 "늘 배워야 하는 행동은 타고나게 굳는" 압력(볼드윈 효과)을 볼 수 있기 때문입니다.
+                        </p>
+                    </article>
+                </div>
+
+                <figure class="media-figure">
+                    <a class="media-link" href="../images/slime-lab/learn.jpg">
+                        <img src="../images/slime-lab/learn.jpg" width="1600" height="900" loading="lazy"
+                             alt="학습 세계 화면: 가운데 지도는 생애 단계 색(어린·젊은·어른·늙은)과 범례, 오른쪽 정보 창은 고른 슬라임의 나이·학습률·배운 양과 두뇌 가중치 '차이' 탭">
+                    </a>
+                    <figcaption>
+                        학습 세계 — 예설정 "학습·성장(1단계)"·씨앗 1을 602틱 돌린 실제 화면. 지도는 생애 단계 색
+                        (흰색 어린 · 노랑 젊은 · 파랑 어른 · 보라 늙은)이고, 오른쪽 정보 창은 배운 양이 큰 개체 #466의
+                        학습률(평균 0.798)·배운 양과 두뇌 탭 "차이"(배운 두뇌 − 타고난 두뇌 — 입력층은 배우지 않음)입니다.
+                        이 씨앗은 개체가 크게 줄어드는 실행이라(이때 24마리) 지도가 성기고, 검수 기록에서는 2,061틱에 멸종합니다.
+                        slime-lab 64d4f0a의 코드로 2026-11-03에 찍었고, 화면으로 진행한 역사 해시가 헤드리스 실행과 같음을 함께 확인했습니다.
+                    </figcaption>
+                </figure>
+
+                <h3 class="subheading">함께 만든 관찰 도구</h3>
+                <ul class="check-list">
+                    <li>0단계 관찰 바닥(규칙은 그대로): 행동마다 고른 횟수와 효과를 낸 횟수, 평생 먹은 양 기록</li>
+                    <li>우연 기준 세계(자식이 부모와 상관없는 무작위 두뇌를 받아 진화가 없는 세계)와 반사실 재생(같은 스냅숏에서 설정 하나만 바꿔 다시 돌림)</li>
+                    <li>관문 판정 도구 — 판정 씨앗은 사전 고정 커밋을 댄 판정 명령으로만 돌게 막는 장치까지</li>
+                    <li>화면: 정보 창의 생애 단계·나이 막대·학습률·두뇌 탭(타고난/배운/차이), 지도 색(계통·생애 단계·배운 양), 그래프의 학습 값</li>
+                    <li>새 장치는 모두 기본 꺼짐. 다 끄면 1부와 같은 역사가 비트까지 나오는지를, 1부 코드로 잰 해시 6개와 견주는 자동 검사로 지킵니다</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 관문 A -->
+        <section class="section section-muted">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-number">05</p>
+                    <h2>관문 A — 배우는 슬라임이 정말 더 잘하나</h2>
+                    <p>
+                        학습이 실제로 득인지 모른 채 다음 단계를 쌓지 않으려고, 1단계 끝에 관문을 두었습니다.
+                        판정마다 조건은 실행 전에 커밋으로 고정했고(사전 고정), 그 판정의 결과를 본 뒤에는 바꾸지 않았습니다.
+                        다만 3차의 판정 규칙(대상 구간)과 학습 값은 앞의 두 판정 결과를 안 뒤에 고친 것입니다.
+                    </p>
+                </div>
+
+                <p class="section-text">
+                    질문은 하나입니다. 배우는 슬라임이, 같은 씨앗에서 학습을 멈춘(freeze) 슬라임보다 한 생애 안에서 더 잘 사나?
+                    진화가 섞이지 않게 자식이 무작위 두뇌를 받는 세계에서, 학습·freeze·학습 끔 세 갈래를 씨앗 12개로 돌려 견줍니다.
+                </p>
+                <ul class="check-list">
+                    <li>① 먹은 양 — 학습 쪽이 이긴 씨앗이 10/12 이상, 그리고 묶은 중앙값의 비가 1.05 이상</li>
+                    <li>② 평균 산 나이나 평균 자식 수 가운데 하나에서 학습 쪽이 이긴 씨앗이 8/12 이상</li>
+                    <li>두 판정 갈래 가운데 하나라도 대상(정한 구간에 태어난 개체)이 30마리에 못 미치는 씨앗이 있으면 "판정 불가"</li>
+                    <li>판정마다 다른 에이전트가 분석 도구 없이 원자료를 다시 세어 반박을 시도. 재판정부터는 판정 씨앗을 판정 명령으로 한 번만 돌림(첫 판정의 씨앗 1·2는 그 전에 시험 실행에 쓰였던 것을 판정 뒤에 찾아 공개)</li>
+                </ul>
+
+                <h3 class="subheading">세 번의 판정</h3>
+                <div class="verify-table-wrap">
+                    <table class="verify-table">
+                        <thead>
+                            <tr><th scope="col">판정</th><th scope="col">결과</th><th scope="col">조건과 수치</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>첫 판정(10-11)</td><td class="fail" data-label="결과">판정 불가</td><td data-label="수치">씨앗 1~12 · 첫 학습 값 · 대상 틱 [200, 600) 출생. 씨앗 9의 freeze 대상이 19마리. 판정 가능한 11씨앗에서도 ① 5/11·비 1.025로 문턱에 못 미쳐, 실패로 보고 학습 값을 다시 골랐습니다</td></tr>
+                            <tr><td>재판정(10-11)</td><td class="fail" data-label="결과">판정 불가</td><td data-label="수치">새 씨앗 13~24 · 다시 고른 학습 값. 씨앗 14·19·24의 freeze 대상이 26·18·28마리. 판정 가능한 9씨앗에서는 ① 9/9·비 1.776이었지만 판정이 아닙니다</td></tr>
+                            <tr><td>3차 판정(10-18)</td><td class="ok" data-label="결과">통과</td><td data-label="수치">새 씨앗 25~36 · 학습 값 N10 · 대상 틱 [0, 600) 출생. 12씨앗 모두 판정 가능(freeze 대상 148~240). ① 11/12·비 1.270, ② 평균 자식 수 12/12(평균 산 나이는 7/12)</td></tr>
+                            <tr><td>A-2 진화한 두뇌(보고)</td><td class="fail" data-label="결과">실패</td><td data-label="수치">같은 씨앗 25~36. 진화 세계를 평균 30세대까지 돌린 뒤 같은 비교 — ① 7/12·비 1.067. 앞의 두 판정 때도 실패</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="subheading">고친 것, 고른 것, 약한 곳</h3>
+                <ul class="check-list">
+                    <li>freeze 갈래는 학습 값에 닿지 않아, 그 갈래의 대상 수는 처음부터 씨앗이 정했습니다. 재판정 전의 진단이 이미 이 위험을 짚었고(12씨앗 모두 판정 가능할 확률 약 0.1~0.4 — 추정, 곧 판정 불가 쪽이 더 그럴 법했음), 판정 뒤 독립 검증이 조정 실행 600개에서 freeze 역사가 같음을 확인했습니다. 학습 값을 아무리 다시 골라도 피할 수 없는 판정 규칙의 결함이었습니다</li>
+                    <li>그래서 3차는 판정 규칙을 실행 전에 고쳤습니다(대상 출생 구간의 시작을 틱 200 → 0). 이 규칙은 앞 판정의 결과와 진단을 안 뒤 고른 것입니다. 같은 원자료를 옛 구간으로 세면 3차도 씨앗 30에서 판정 불가였습니다</li>
+                    <li>3차의 학습 값 N10은 미리 정한 고르기 규칙이 고른 값이 아닙니다. 측정을 본 뒤 제가 고른 값(계획 밖 고름)이고, 기록에도 그렇게 남겼습니다</li>
+                    <li>통과에도 약한 곳이 있습니다. ① 은 첫 자식 무리에 기댑니다(출생 틱 [0, 200) 12/12·비 1.443, [200, 600) 판정 가능 11씨앗에서 7/11·비 1.193). ② 는 평균 자식 수로만 채웠고, 이긴 씨앗 11은 문턱 10보다 하나 많습니다</li>
+                    <li>기록에 남긴 실수: 고르기 계획의 "못 고르면 기본값 그대로" 갈래가 기본값을 같은 제약에 대어 보지 않은 결함, 재판정 전에 알려진 그 위험을 사용자에게 알렸는지 확인하지 못한 채 실행한 것</li>
+                </ul>
+
+                <h3 class="subheading">진화한 두뇌에서는 — 환경 훑기</h3>
+                <p class="section-text">
+                    A-2가 실패해, "변하는 환경에서는 배우는 쪽이 낫다"(Ackley &amp; Littman 1992)는 생각으로 환경을 훑었습니다(보고용, 관문 아님).
+                    계절 진폭(0·1·1.5) × 계절 길이(60·120·240틱) × 자원량(0.85·1.0·1.6)의 21환경(진폭 0은 계절이 없어 길이 하나만 — 7 × 3)을 씨앗 1~12로 돌려
+                    7곳이 미리 정한 득 기준을 채웠고, 기본 환경은 못 채웠습니다. 상위 두 곳을 새 씨앗 37~48로 한 번 확인한 결과,
+                    <strong>E05(계절 진폭 1.5 · 계절 60틱 · 자원 1.0) 한 곳만 문턱 바로 위로 확인</strong>됐습니다(① 10/12 — 문턱 그대로, 비 1.070).
+                    다른 한 곳(E09)은 확인되지 않았습니다(① 9/12).
+                </p>
+                <p class="section-text">
+                    다만 대조로 쓴 기본 환경은 진화 세계가 잘 살지 못해 판정 불가였습니다. 그래서 E05의 득이 계절 조건 덕인지,
+                    진화 세계가 잘 사는 덕인지는 가르지 못했습니다. 훑기에서 보인 "계절이 짧을수록·자원이 많을수록 득이 크다"는 경향도
+                    대부분 생존과 묶여 있었고, E05는 땅의 먹이 양으로 보면 기본 환경보다 덜 흔들리거나 비슷했습니다.
+                    학습률 유전자 η는 모든 환경에서 30세대 동안 처음 값(0.8) 근처에 머물렀습니다(보고만).
+                </p>
+
+                <h3 class="subheading">하지 않은 것</h3>
+                <p class="section-text">
+                    2단계(무엇을 좋아할지 유전 — 내재 보상), 3단계(가르침·모방으로 물려받기, 개체가 들고 다니다 잃을 수 있는 앎)와 관문 B,
+                    4~6단계(재료 물리·만들기·건물), 7단계(실험 묶음)는 설계 문서에만 있습니다. 2단계는 학습이 쓸모 있어야 뜻이 있는데,
+                    진화한 두뇌에서 학습의 득은 한 환경에서 문턱 바로 위로만 확인된 상태입니다. 2026년 11월 3일, 여기서 마무리하기로 했습니다.
+                </p>
+            </div>
+        </section>
+
+        <!-- 바이브 코딩 과정 -->
+        <section class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-number">06</p>
+                    <h2>바이브 코딩으로 만든 과정</h2>
+                    <p>
+                        코드는 AI 에이전트(Claude Code)가 작성했고, 저는 목표와 원칙을 정하고 갈림길에서 결정하며
+                        단계마다 결과(캡처·검사 결과)를 확인했습니다.
+                    </p>
+                </div>
+
+                <div class="decision-grid">
+                    <article class="learning-card">
+                        <p class="card-label current">제가 정한 것</p>
+                        <ul class="plain-list">
+                            <li>프로젝트 목표와 원칙: 오프라인, 모든 수치는 설정 파일 하나에서, 결정적 시뮬레이션, 새 규칙마다 자동 검사, 검증한 것과 못 한 것을 구분해 보고</li>
+                            <li>학습 방식(신경진화)과 1단계 범위(생태 + 발견 3단계 + 건물 2종)</li>
+                            <li>데이터 형식(JSON + base64), 두뇌 구조는 권장안(고정 12-8-8) 채택</li>
+                            <li>"PyTorch를 쓰면 좋지 않을까?" — 개체마다 아주 작은 신경망·역전파 없는 진화·결정성 때문에 시뮬레이션에는 쓰지 않고, 파이썬은 결과 분석에만</li>
+                            <li>PC 전용 원칙의 예외로 포트폴리오용 웹 체험판</li>
+                            <li>2부 방향: 설계 조사가 맨 뒤로 미뤘던 평생 학습과 성장을 1단계로, 물려주기는 가르침으로만(배운 가중치는 유전되지 않음)</li>
+                            <li>관문 A의 판정 조건, 첫 판정을 실패로 보고 다시 고르기, 판정 규칙을 고친 3차 판정, 3차의 학습 값 N10(측정을 본 뒤 — 계획 밖), 2단계 전에 환경 훑기</li>
+                            <li>2026-11-03: 2단계 이후는 설계로 남기고 여기서 마무리</li>
+                        </ul>
+                    </article>
+                    <article class="learning-card">
+                        <p class="card-label future">AI 에이전트가 한 것</p>
+                        <ul class="plain-list">
+                            <li>설계 문서 초안, 구현, 자동 검사, 문서</li>
+                            <li>화면 구성 요소를 git 워크트리에서 여러 에이전트가 병렬로 만든 뒤 통합</li>
+                            <li>적대적 검토: 여러 관점의 검토자가 문제를 찾고, 발견마다 검증자 둘이 반박을 시도해 살아남은 것만 고침(3단계: 확인된 40건 모두, 4단계: 확인된 55건 모두 — 그중 5건은 일부를 까닭과 함께 남김)</li>
+                            <li>1단계를 마친 뒤 처음부터 다시 한 전체 검토: 확인된 문제 121개 — 실험실 저장소의 111개를 고치고(1개는 일부를 까닭과 함께 남김), 포트폴리오 몫 10개는 이 사이트에서 고침</li>
+                            <li>GitHub Actions: 검사 → Linux·Windows·웹 빌드 → 체험판 배포(GitHub Pages)</li>
+                            <li>2부의 판정마다: 실행 전 사전 고정 커밋 → 판정 씨앗을 한 번 실행 → 다른 에이전트가 분석 도구 없이 원자료를 다시 세어 반박 → 맞는 지적을 문서에 고침</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <ol class="timeline">
+                    <li><strong>설계</strong> 규칙·데이터 구조·화면·검사 항목·성능 목표를 문서로. 바꾸기 어려운 결정 두 가지만 먼저 질문.</li>
+                    <li><strong>시뮬레이션 핵심</strong> 화면 없이 도는 규칙과 헤드리스 실행기. 초안 수치로는 첫 세대가 매번 멸종해 행동 선택을 확률적으로 바꾸고 생태 수치를 조정.</li>
+                    <li><strong>3D 실험실</strong> 절차적 슬라임 모델, 지도 관찰 창, 개체 정보 창. 병렬 개발 → 통합 → 적대적 검토.</li>
+                    <li><strong>패널과 비교</strong> 실험 조건·그래프·연대기·CSV·스냅숏·비교 모드·합성 효과음.</li>
+                    <li><strong>빌드와 배포</strong> Linux·Windows·웹 내보내기, 자동 빌드, 체험판 배포.</li>
+                    <li><strong>전체 검토와 고침</strong> 마친 1단계를 처음부터 다시 검토해 확인된 문제 121개(실험실 111개 · 이 사이트 10개)를 고치고, 독립 검증자가 다시 재현해 남은 것을 마저 고침.</li>
+                    <li><strong>2부 설계와 관찰 바닥</strong> 한 생애·세대 사이·여러 세대의 세 시간 척도를 설계하고, 행동 셈·우연 기준·반사실 재생과 "새 장치를 끄면 1부와 같은 역사"인지 보는 검사를 먼저 만듦.</li>
+                    <li><strong>성장 + 스스로 학습</strong> 생애 단계·몸 자람·배운 두뇌·학습률 유전자, 정보 창 두뇌 탭·지도 색. 두 독립 검증의 지적을 고침.</li>
+                    <li><strong>관문 A</strong> 판정 불가 → 학습 값을 다시 골라 재판정했지만 다시 판정 불가 → 판정 규칙을 고쳐 3차에서 통과. 판정마다 사전 고정과 독립 재계산.</li>
+                    <li><strong>환경 훑기와 마무리</strong> 21환경 훑기와 새 씨앗 확인. 2단계 이후는 설계로 남기고 회고·v0.2.0으로 정리.</li>
+                </ol>
+
+                <div class="stat-grid">
+                    <div><strong>약 1만 7천 9백 줄</strong><span>GDScript(시뮬레이션 3,498 · 3D 3,381 · 화면 11,046)</span></div>
+                    <div><strong>약 2만 3천 5백 줄</strong><span>검사·분석 코드 — tests/ 폴더의 GDScript 16,182(검사와 헤드리스 실행기·화면 캡처·성능 측정) · 파이썬 검사 4,410 · 분석 도구 analyze.py 2,938</span></div>
+                    <div><strong>2,070개 넘는 자동 검사</strong><span>규칙 547 · 화면 1,366 · 파이썬 160 + 실제 화면 동작 확인 60(1280×720에서 59)</span></div>
+                    <div><strong>커밋 134개</strong><span>1부 77 · 2부 55 · 마무리 2 — 단계마다 커밋·푸시, CI로 확인</span></div>
+                </div>
+                <p class="section-note">
+                    숫자는 slime-lab main의 마무리 커밋 e8f2122(2026-11-03, v0.2.0) 기준입니다. 기간은 만든 커밋들의 날짜
+                    (2026-10-07 ~ 10-18, 커밋이 있는 날 6일)이고, 11월 3일의 마무리 커밋 2개(판 번호·회고·문서 고침)는 따로 셌습니다.
+                    자동 검사 수는 그 커밋에서 돌린 전체 실행(검수 보고서 맨 앞 절)입니다. GitHub Actions는 64d4f0a(#26 — 파이썬 159)까지 통과를 확인했고,
+                    마무리 커밋의 실행은 이 페이지를 고칠 때 아직 없었습니다. 실제 화면 동작 확인은 2026-11-03에 다시 돌린 값입니다.
+                </p>
+
+                <h3 class="subheading">과정에서 드러난 것</h3>
+                <ul class="check-list">
+                    <li>설계 초안대로 구현하자 무작위 두뇌가 한 행동만 반복해 첫 세대가 멸종 — 실측으로 원인을 찾고 설계를 고침</li>
+                    <li>Godot 4.4.1의 JSON 출력이 실수를 비트 단위로 되돌리지 못함(0.1+0.2 → "0.3") — 스냅숏의 실수는 비트 문자열로 저장</li>
+                    <li>각자 검사를 통과한 구성 요소도 함께 띄우자 최소 창 크기에서 패널이 넘침 — 실제 화면을 띄우는 통합 검사를 추가</li>
+                    <li>전체 검토에서 규칙 결함(식물 성장량이 갱신 간격에 따라 달라지던 것 등)을 고치자 역사가 바뀌어 문명이 더 빨라졌고, 예설정 "빠른 문명"은 세대 목표(저장 15~35·농사 30~70세대 중앙값)를 못 맞춤 — 씨앗 12개의 중앙값이 저장 5.7·농사 14.3세대로 더 이르고, 2개는 농사를 연 뒤 멸종. 다시 맞추지는 않음</li>
+                    <li>관문 A의 판정 불가는 학습 값이 아니라 씨앗에 묶여 있었음 — 값을 다시 골라 재판정을 했지만, 판정을 막은 freeze 갈래의 대상 수는 학습 값과 상관없었음(재판정 전 진단이 이미 예상했고, 판정 뒤 독립 검증이 600/600으로 확인)</li>
+                    <li>학습 값을 관문 A의 세계에만 맞춰 고르자 진화 세계의 생존이 떨어짐(같은 씨앗 1~12에서 평균 30세대 전 멸종 0/12 → 4/12) — 그 뒤로는 두 세계를 함께 보고 고르기로 함</li>
+                    <li>3차 판정에서 학습 갈래는 먹기를 두 배쯤 자주 골랐지만 먹기가 효과를 낸 몫은 낮았고(27.1%·62.8% 대 freeze 13.4%·71.1%), 세계에 남은 먹이도 적었는데 대상 한 마리가 먹은 양은 많았음 — 까닭은 재지 않음</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 검증 -->
+        <section class="section section-muted">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-number">07</p>
+                    <h2>검증한 것과 확인하지 못한 것</h2>
+                </div>
+
+                <h3 class="subheading">1부(v0.1)</h3>
+                <div class="verify-table-wrap">
+                    <table class="verify-table">
+                        <thead>
+                            <tr><th scope="col">항목</th><th scope="col">판정</th><th scope="col">근거</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>같은 씨앗 → 같은 역사</td><td class="ok" data-label="판정">통과</td><td data-label="근거">역사 해시·CSV·유전체 비교, 서로 다른 리눅스 기계(CI)에서도 같은 해시</td></tr>
+                            <tr><td>웹(wasm)과 리눅스 데스크톱에서 같은 역사</td><td class="ok" data-label="판정">통과(수동 탐침)</td><td data-label="근거">시뮬레이션만 담은 탐침을 웹으로 내보내 헤드리스 Chromium과 리눅스 데스크톱에서 8경우를 돌려 역사 해시가 모두 같음(1부 코드, 2026-10-10) — Chromium에서만 확인, CI 검사는 아님</td></tr>
+                            <tr><td>저장·복원 왕복</td><td class="ok" data-label="판정">통과</td><td data-label="근거">복원 후 이어 돌린 해시 = 끊김 없이 돌린 해시</td></tr>
+                            <tr><td>자원 0 → 멸종, 100세대 안에 농사 도달하는 조건</td><td class="ok" data-label="판정">통과</td><td data-label="근거">자동 검사</td></tr>
+                            <tr><td>화면을 거쳐도 시뮬레이션이 바뀌지 않음</td><td class="ok" data-label="판정">통과</td><td data-label="근거">실험실을 거친 해시 = 헤드리스 해시</td></tr>
+                            <tr><td>웹 빌드(체험판)가 브라우저에서 뜨고 실험이 진행됨</td><td class="ok" data-label="판정">통과(헤드리스)</td><td data-label="근거">헤드리스 Chromium + SwiftShader(소프트웨어 WebGL2)에서만 확인 — 오류 없이 실험실이 뜨고 틱이 진행됨. CSV·스냅숏 내려받기는 자동 검사로 확인했고, 브라우저의 실제 내려받기 창은 미검증</td></tr>
+                            <tr><td>헤드리스 1,000세대</td><td class="fail" data-label="판정">실패</td><td data-label="근거">목표 5분 이내 — 마지막 측정 733.8초(12.2분, 2026-10-10). 같은 날 고침 전 코드도 같은 속도라 기계가 느린 날로 보며, 2단계 측정 날에는 7.4분</td></tr>
+                            <tr><td>실제 GPU에서 200마리 60FPS</td><td class="none" data-label="판정">미검증</td><td data-label="근거">개발 환경에 GPU가 없어 소프트웨어 렌더러로만 측정</td></tr>
+                            <tr><td>실제 GPU 브라우저에서 체험판 속도</td><td class="none" data-label="판정">미검증</td><td data-label="근거">SwiftShader(소프트웨어 그래픽)에서만 쟀음 — 64배 목표에 실제 1.1배. 이 값은 7.5FPS 아래에서 엔진이 자른 시간으로 잰 것이라 실제보다 클 수 있음(검토 J04에서 재는 방식을 고쳤고, 다시 재지는 않음)</td></tr>
+                            <tr><td>GitHub Pages 체험판 배포</td><td class="ok" data-label="판정">통과</td><td data-label="근거">저장소의 GitHub Pages를 켠 뒤 Actions의 배포 단계가 성공(2026-10-11부터, 마지막은 2026-10-18 64d4f0a — GitHub 배포 기록 success, kyusang4657.github.io/slime-lab/). 그전에는 Pages가 꺼져 있어 배포 단계가 실패했음</td></tr>
+                            <tr><td>Windows·macOS에서 같은 해시, Windows 실행</td><td class="none" data-label="판정">미검증</td><td data-label="근거">리눅스 환경만 있음</td></tr>
+                            <tr><td>효과음을 실제로 들어 보기</td><td class="none" data-label="판정">미검증</td><td data-label="근거">합성 파형의 수치만 자동 검사</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="subheading">2부(v0.2)</h3>
+                <div class="verify-table-wrap">
+                    <table class="verify-table">
+                        <thead>
+                            <tr><th scope="col">항목</th><th scope="col">판정</th><th scope="col">근거</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>관문 A — 배우는 슬라임이 학습을 멈춘 슬라임보다 한 생애 안에서 더 잘하나</td><td class="ok" data-label="판정">통과(3차)</td><td data-label="근거">사전 고정(4bf3c90) 그대로 새 씨앗 25~36을 명령마다 한 번 — ① 11/12·비 1.270, ② 평균 자식 수 12/12. 다른 에이전트가 분석 도구 없이 다시 세어 판정과 수치가 같음. 앞의 두 판정은 판정 불가였고, 3차의 대상 구간과 학습 값(N10 — 계획 밖 고름)은 그 뒤에 바꾼 것</td></tr>
+                            <tr><td>A-2 — 진화한 두뇌에서도 학습이 득인가(보고)</td><td class="fail" data-label="판정">실패</td><td data-label="근거">① 7/12·비 1.067(문턱 ① 10/12 — A-2에는 비 문턱이 없음). 앞의 두 판정 때도 실패</td></tr>
+                            <tr><td>진화한 두뇌에서 학습이 득인 환경(훑기 — 보고용)</td><td class="ok" data-label="판정">확인 1곳</td><td data-label="근거">21환경 가운데 7곳이 기준을 채웠고, 고른 2곳을 새 씨앗 37~48로 한 번 확인해 E05만 문턱 그대로 확인(① 10/12·비 1.070). 대조가 판정 불가라, 득이 계절 조건 덕인지는 가르지 못함</td></tr>
+                            <tr><td>새 장치를 모두 끈 세계 = 1부의 역사(비트 동일)</td><td class="ok" data-label="판정">통과</td><td data-label="근거">1부 코드로 잰 해시 6개(기본·씨앗 1·100세대 등)와 견주는 자동 검사 — GitHub Actions에서도 통과(64d4f0a, #26)</td></tr>
+                            <tr><td>같은 비교를 1,000세대까지</td><td class="none" data-label="판정">미검증</td><td data-label="근거">자동 검사는 100세대(6,391틱)까지. 1,000세대 해시는 2부 코드로 견주지 않음</td></tr>
+                            <tr><td>학습 세계를 화면으로 돌려도 같은 역사</td><td class="ok" data-label="판정">통과</td><td data-label="근거">실제 화면 확인에서 학습·성장 예설정·씨앗 1을 602틱 진행한 해시 = 헤드리스 해시(1600×900·1280×720, 2026-11-03에 다시 확인)</td></tr>
+                            <tr><td>판정 씨앗을 한 번만 씀</td><td class="ok" data-label="판정">통과</td><td data-label="근거">3차 판정 뒤 다른 에이전트가 씨앗 25~36의 결과 파일 수와 만든 시각을 셈 — 판정 실행 120개뿐, 사전 고정 커밋 뒤·판정 커밋 전. 그 전에 지워진 파일이 있었는지는 볼 수 없음</td></tr>
+                            <tr><td>웹 체험판에서 2부 학습 세계</td><td class="none" data-label="판정">미검증</td><td data-label="근거">체험판은 Actions가 2부 코드로 다시 만들어 배포(성공)했지만, 학습 세계를 브라우저에서 띄워 보지는 않음(이 개발 환경에서는 github.io 접속이 막힘)</td></tr>
+                            <tr><td>웹(wasm)과 데스크톱에서 같은 역사 — 2부 코드</td><td class="none" data-label="판정">미검증</td><td data-label="근거">8경우 수동 탐침(1부 표)은 1부 코드로 한 것. 2부에서 시뮬레이션 코드가 바뀌었고(학습을 켠 세계 포함) 다시 확인하지 않음</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 기술 -->
+        <section class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-number">08</p>
+                    <h2>사용 기술</h2>
+                </div>
+                <ul class="tag-list" aria-label="사용 기술">
+                    <li>Godot 4.4.1</li>
+                    <li>GDScript</li>
+                    <li>Neuroevolution</li>
+                    <li>Lifetime Learning</li>
+                    <li>Deterministic Simulation</li>
+                    <li>Pre-registered Tests</li>
+                    <li>Procedural 3D</li>
+                    <li>Python · pandas · matplotlib</li>
+                    <li>GitHub Actions</li>
+                    <li>GitHub Pages</li>
+                    <li>Claude Code</li>
+                </ul>
+                <div class="project-actions">
+                    <a class="button button-primary" href="https://github.com/kyusang4657/slime-lab"
+                       target="_blank" rel="noopener noreferrer">GitHub 저장소</a>
+                    <a class="button button-secondary" href="https://github.com/kyusang4657/slime-lab/blob/main/docs/RETROSPECTIVE.md"
+                       target="_blank" rel="noopener noreferrer">회고</a>
+                    <a class="button button-secondary" href="https://github.com/kyusang4657/slime-lab/releases"
+                       target="_blank" rel="noopener noreferrer">릴리스</a>
+                    <a class="button button-secondary" href="https://github.com/kyusang4657/slime-lab/blob/main/docs/DESIGN-v0.1.md"
+                       target="_blank" rel="noopener noreferrer">설계 문서 v0.1</a>
+                    <a class="button button-secondary" href="https://github.com/kyusang4657/slime-lab/blob/main/docs/DESIGN-v0.2.md"
+                       target="_blank" rel="noopener noreferrer">설계 문서 v0.2</a>
+                    <a class="button button-secondary" href="https://github.com/kyusang4657/slime-lab/blob/main/docs/TEST-REPORT.md"
+                       target="_blank" rel="noopener noreferrer">검수 보고서</a>
+                    <a class="button button-secondary" href="https://kyusang4657.github.io/slime-lab/"
+                       target="_blank" rel="noopener noreferrer">브라우저 체험판</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>© <span id="current-year"></span> Jung Kyusang. Built with HTML, CSS and JavaScript.</p>
+            <a href="https://github.com/kyusang4657" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+    </footer>
+</body>
+</html>
