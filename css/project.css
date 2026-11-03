@@ -184,6 +184,31 @@ main h3 {
     margin-top: 14px;
 }
 
+/* 본문 단락(2부·관문 A). 글자색·크기는 본문 그대로 */
+.section-text {
+    max-width: 860px;
+    margin: 0;
+}
+
+.section-text + .section-text {
+    margin-top: 16px;
+}
+
+.section-text + .feature-grid {
+    margin-top: 40px;
+}
+
+.section-text + .check-list,
+.subheading + .section-text,
+.subheading + .verify-table-wrap {
+    margin-top: 14px;
+}
+
+/* 검증 표를 1부·2부로 나눔: 절 제목 바로 뒤의 소제목은 위 여백 없이 */
+.section-heading + .subheading {
+    margin-top: 0;
+}
+
 /* 단계 */
 .timeline {
     max-width: 860px;

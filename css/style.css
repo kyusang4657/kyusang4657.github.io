@@ -420,6 +420,9 @@ a {
 
 .project-card {
     padding: 38px;
+    /* 한국어 소개 글은 낱말(어절) 가운데가 아니라 빈칸에서 줄을 바꿈. 아주 긴 낱말만 넘치지 않게 끊음 */
+    word-break: keep-all;
+    overflow-wrap: break-word;
 }
 
 .project-topline {
